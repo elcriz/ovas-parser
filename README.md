@@ -6,13 +6,19 @@ The validation api can be found in `./validation.js`.
 
 ## How to use?
 
-First, start the script:
+First, install the script:
+
+```
+$ npm install
+```
+
+Then, start the script (and do so again for each XML file):
 
 ```
 $ npm start
 ```
 
-Then, enter the XML file path. For example:
+Lastly, enter the XML file path. For example:
 
 ```
 prompt: file:  /Users/MyUserName/Downloads/1855_2021-2022.xml
