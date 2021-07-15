@@ -33,7 +33,7 @@ module.exports = {
     },
     values: {
         preKlant: {
-            huisnummer: (value) => !!value,
+            huisnummer: (value) => value !== undefined,
         },
     },
 };
