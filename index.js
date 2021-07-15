@@ -10,8 +10,8 @@ const onError = (error) => {
 
 const isValidProperty = (source, item, property) => {
     const value = item[property]._text;
-    if (validation.values[source][property]) {
-        return validation.values[source][property](value);
+    if (validation[source][property]) {
+        return validation[source][property](value);
     }
     return true;
 };
@@ -32,7 +32,6 @@ prompt.get(['file'], (error, result) => {
     }
 
     try {
-        const getKeys = objectToCheck => Object.keys(objectToCheck).toString();
         const data = fs.readFileSync(result.file, 'utf-8');
         const json = JSON.parse(
             convert.xml2json(data, {
@@ -49,14 +48,6 @@ prompt.get(['file'], (error, result) => {
 
         preVerkoopOrders.forEach((order) => {
             const studentNumber = order.preKlant.leerlingnummer._text;
-            if (getKeys(order) !== validation.keys.order.toString()) {
-                throw `\t #${studentNumber}: Incorrect order elements found`;
-            }
-
-            if (getKeys(order.preKlant) !== validation.keys.preKlant.toString()) {
-                throw `\t #${studentNumber}: Incorrect preKlantElements found`;
-            }
-
             if (!isValidPreKlant(order.preKlant)) {
                 throw `\t #${studentNumber}: Incorrect preKlant values found`;
             }
