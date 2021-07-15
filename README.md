@@ -1,6 +1,6 @@
 # OVAS Import file parse checker
 
-Scans an OVAS XML file for errors. This script might be helpful when running OVAS import batches.
+Scans an OVAS XML file for errors. This script is by no means perfect, but it might be helpful when running OVAS import batches.
 
 The validation api can be found in `./validation.js`.
 
